@@ -1,5 +1,5 @@
 <template>
-  <section id="about" class="section-padding">
+  <section id="about" class="section-padding fade-section" :class="{ visible }">
     <div class="container">
       <div class="section-header text-center mb-5">
         <span class="section-tag">Get To Know Me</span>
@@ -17,7 +17,7 @@
               <span class="stat-label">Years Exp.</span>
             </div>
             <div class="stat-badge stat-bottom">
-              <span class="stat-num">10+</span>
+              <span class="stat-num">15+</span>
               <span class="stat-label">Projects</span>
             </div>
           </div>
@@ -62,6 +62,9 @@
 
 <script setup>
 import profilePhoto from '../assets/profile.jpg'
+import { useFadeIn } from '../composables/useFadeIn'
+
+const { visible } = useFadeIn('about')
 
 function scrollTo(href) {
   document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })

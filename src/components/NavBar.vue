@@ -30,6 +30,11 @@
               <i class="bi bi-download me-1"></i>CV
             </a>
           </li>
+          <li class="nav-item ms-lg-1">
+            <button class="theme-toggle" @click="toggleTheme" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
+              <i :class="isDark ? 'bi bi-sun' : 'bi bi-moon'"></i>
+            </button>
+          </li>
         </ul>
       </div>
     </div>
@@ -40,18 +45,33 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 
 const activeSection = ref('hero')
+const isDark = ref(true)
 
 const navLinks = [
   { label: 'Home',       href: '#hero',       section: 'hero' },
   { label: 'About',      href: '#about',      section: 'about' },
   { label: 'Skills',     href: '#skills',     section: 'skills' },
-  { label: 'Projects',   href: '#projects',   section: 'projects' },
   { label: 'Experience', href: '#experience', section: 'experience' },
+  { label: 'Projects',   href: '#projects',   section: 'projects' },
   { label: 'Contact',    href: '#contact',    section: 'contact' },
 ]
 
 function scrollTo(href) {
   document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
+}
+
+function applyTheme(dark) {
+  if (dark) {
+    document.documentElement.classList.remove('light')
+  } else {
+    document.documentElement.classList.add('light')
+  }
+  localStorage.setItem('theme', dark ? 'dark' : 'light')
+}
+
+function toggleTheme() {
+  isDark.value = !isDark.value
+  applyTheme(isDark.value)
 }
 
 function onScroll() {
@@ -66,6 +86,11 @@ function onScroll() {
   nav?.classList.toggle('scrolled', window.scrollY > 50)
 }
 
-onMounted(() => window.addEventListener('scroll', onScroll))
+onMounted(() => {
+  const saved = localStorage.getItem('theme')
+  isDark.value = saved ? saved === 'dark' : true
+  applyTheme(isDark.value)
+  window.addEventListener('scroll', onScroll)
+})
 onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>

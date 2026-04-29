@@ -7,7 +7,7 @@
         <div class="col-lg-7 order-2 order-lg-1 hero-text-col">
           <div class="hero-badge mb-4">
             <span class="badge-dot"></span>
-            Available for work
+            Open to Opportunities
           </div>
           <p class="hero-greeting mb-2">Hi there, I'm</p>
           <h1 class="hero-name mb-3">Arup Paul</h1>
@@ -78,11 +78,11 @@ import { ref, onMounted, onUnmounted } from 'vue'
 import profilePhoto from '../assets/profile.jpg'
 
 const roles = [
-  'Software Engineer',
-  'Laravel Expert',
+  'Full Stack PHP Developer',
+  'Laravel API Architect',
   'Vue.js Developer',
   'React Developer',
-  'Full Stack Developer',
+  'ERP Systems Builder',
 ]
 const displayedRole = ref('')
 let roleIndex = 0, charIndex = 0, deleting = false, timer = null

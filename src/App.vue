@@ -1,4 +1,5 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
 import AboutSection from './components/AboutSection.vue'
@@ -6,6 +7,19 @@ import SkillsSection from './components/SkillsSection.vue'
 import ProjectsSection from './components/ProjectsSection.vue'
 import ExperienceSection from './components/ExperienceSection.vue'
 import ContactSection from './components/ContactSection.vue'
+
+const showScrollTop = ref(false)
+
+function onScroll() {
+  showScrollTop.value = window.scrollY > 400
+}
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+onMounted(() => window.addEventListener('scroll', onScroll))
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
 </script>
 
 <template>
@@ -26,4 +40,13 @@ import ContactSection from './components/ContactSection.vue'
       <p class="mb-0 small text-secondary">&copy; {{ new Date().getFullYear() }} · All rights reserved</p>
     </div>
   </footer>
+
+  <button
+    class="scroll-top-btn"
+    :class="{ hidden: !showScrollTop }"
+    @click="scrollToTop"
+    aria-label="Scroll to top"
+  >
+    <i class="bi bi-chevron-up"></i>
+  </button>
 </template>

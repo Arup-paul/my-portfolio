@@ -1,5 +1,5 @@
 <template>
-  <section id="experience" class="section-padding alt-bg">
+  <section id="experience" class="section-padding alt-bg fade-section" :class="{ visible }">
     <div class="container">
       <div class="section-header text-center mb-5">
         <span class="section-tag">My Journey</span>
@@ -63,7 +63,7 @@
                 <i :class="cert.icon" class="fs-4 text-primary"></i>
               </div>
               <div>
-                <p class="text-white fw-semibold mb-0 small">{{ cert.name }}</p>
+                <p class="cert-name fw-semibold mb-0 small">{{ cert.name }}</p>
                 <p class="text-secondary mb-0" style="font-size:0.78rem">{{ cert.issuer }}</p>
                 <div class="d-flex flex-wrap gap-1 mt-1">
                   <span class="tech-tag" v-for="t in cert.topics" :key="t">{{ t }}</span>
@@ -78,6 +78,9 @@
 </template>
 
 <script setup>
+import { useFadeIn } from '../composables/useFadeIn'
+const { visible } = useFadeIn('experience')
+
 const jobs = [
   {
     title: 'Software Engineer',
