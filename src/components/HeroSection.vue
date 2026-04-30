@@ -23,9 +23,9 @@
             <a href="#projects" class="btn btn-hero-primary" @click.prevent="scrollTo('#projects')">
               <i class="bi bi-code-slash me-2"></i>View Projects
             </a>
-            <a href="/Arup_paul.pdf" download class="btn btn-hero-secondary">
-              <i class="bi bi-download me-2"></i>Download CV
-            </a>
+            <button @click="emit('open-cv')" class="btn btn-hero-secondary">
+              <i class="bi bi-eye me-2"></i>Preview CV
+            </button>
             <a href="#contact" class="btn btn-hero-outline" @click.prevent="scrollTo('#contact')">
               <i class="bi bi-envelope me-2"></i>Hire Me
             </a>
@@ -76,6 +76,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 import profilePhoto from '../assets/profile.png'
+
+const emit = defineEmits(['open-cv'])
 
 const roles = [
   'Full Stack PHP Developer',

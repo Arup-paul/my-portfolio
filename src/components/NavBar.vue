@@ -26,9 +26,9 @@
             >{{ link.label }}</a>
           </li>
           <li class="nav-item ms-lg-2">
-            <a href="/Arup_paul.pdf" download class="btn btn-nav-cv btn-sm">
-              <i class="bi bi-download me-1"></i>CV
-            </a>
+            <button @click="emit('open-cv')" class="btn btn-nav-cv btn-sm">
+              <i class="bi bi-eye me-1"></i>CV
+            </button>
           </li>
           <li class="nav-item ms-lg-1">
             <button class="theme-toggle" @click="toggleTheme" :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'">
@@ -44,6 +44,8 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
 
+const emit = defineEmits(['open-cv'])
+
 const activeSection = ref('hero')
 const isDark = ref(true)
 
@@ -53,6 +55,7 @@ const navLinks = [
   { label: 'Skills',     href: '#skills',     section: 'skills' },
   { label: 'Experience', href: '#experience', section: 'experience' },
   { label: 'Projects',   href: '#projects',   section: 'projects' },
+  { label: 'GitHub',     href: '#github',     section: 'github' },
   { label: 'Contact',    href: '#contact',    section: 'contact' },
 ]
 
