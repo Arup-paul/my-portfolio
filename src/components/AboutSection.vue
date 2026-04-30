@@ -75,7 +75,7 @@ const personalInfo = [
   { label: 'Email',        value: 'aruppaulctg@gmail.com',        icon: 'bi bi-envelope-fill' },
   { label: 'Whatsapp',        value: '+880 1866702189',              icon: 'bi bi-whatsapp' },
   { label: 'Location',     value: 'Chattogram, Bangladesh',        icon: 'bi bi-geo-alt-fill' },
-  { label: 'Degree',       value: 'B.Sc. CSE – East Delta Univ.', icon: 'bi bi-mortarboard-fill' },
+  { label: 'Degree',       value: 'B.Sc. CSE – East Delta University', icon: 'bi bi-mortarboard-fill' },
   { label: 'Availability', value: 'Open to work',                 icon: 'bi bi-check-circle-fill' },
 ]
 </script>
