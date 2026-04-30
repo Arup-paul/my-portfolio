@@ -75,7 +75,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import profilePhoto from '../assets/profile.jpg'
+import profilePhoto from '../assets/profile.png'
 
 const roles = [
   'Full Stack PHP Developer',

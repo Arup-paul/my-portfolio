@@ -61,7 +61,7 @@
 </template>
 
 <script setup>
-import profilePhoto from '../assets/profile.jpg'
+import profilePhoto from '../assets/profile.png'
 import { useFadeIn } from '../composables/useFadeIn'
 
 const { visible } = useFadeIn('about')
