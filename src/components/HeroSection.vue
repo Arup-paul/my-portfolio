@@ -75,7 +75,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import profilePhoto from '../assets/profile.png'
+import profilePhoto from '../assets/profile.jpeg'
 
 const emit = defineEmits(['open-cv'])
 
